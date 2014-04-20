@@ -27,13 +27,36 @@
 				$audiocode = types_render_field("download_audio", array("argument1"=>"value1","argument2"=>"value2","argument2"=>"value2"));
 				$summary = types_render_field("enter-summary-or-text-url-here", array("argument1"=>"value1","argument2"=>"value2","argument2"=>"value2"));
 				$sermondate = types_render_field("friday-sermon-date", array("argument1"=>"value1","argument2"=>"value2","argument2"=>"value2"));
+				$thumbnailyoutube = "http://img.youtube.com/vi/".$youtubecode."/hqdefault.jpg";
 				echo ("<div style=\"text-align: center; margin: auto\"><object type=\"application/x-shockwave-flash\" style=\"width:672px; height:360px;\" data=\"http://www.youtube.com/v/".$youtubecode."?color2=FBE9EC&amp;version=3&amp;fs=1\">
 			        <param name=\"movie\" value=\"http://www.youtube.com/v/".$youtubecode."?color2=FBE9EC&amp;version=3&amp;fs=1\" />
 			        <param name=\"allowFullScreen\" value=\"true\" />
 			        <param name=\"allowscriptaccess\" value=\"always\" />
         			</object>");
+				$upload_dir = wp_upload_dir();
+				$image_data = file_get_contents($thumbnailyoutube);
+				$filename = basename($image_url);
+				if(wp_mkdir_p($upload_dir['path']))
+				    $file = $upload_dir['path'] . '/' . $filename;
+				else
+				    $file = $upload_dir['basedir'] . '/' . $filename;
+				file_put_contents($file, $image_data);
+
+				$wp_filetype = wp_check_filetype($filename, null );
+				$attachment = array(
+				    'post_mime_type' => $wp_filetype['type'],
+				    'post_title' => sanitize_file_name($filename),
+				    'post_content' => '',
+				    'post_status' => 'inherit'
+				);
+				$attach_id = wp_insert_attachment( $attachment, $file, $post_id );
+				require_once(ABSPATH . 'wp-admin/includes/image.php');
+				$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
+				wp_update_attachment_metadata( $attach_id, $attach_data );
+
+				set_post_thumbnail( $post_id, $attach_id );
 				the_title( '<h1 class="entry-title">', '</h1>' );
-				echo ("<img src=\"http://img.youtube.com/vi/".$youtubecode."/hqdefault.jpg\"/>");
+				echo ("<img src=".$thumbnailyoutube">");
 				}else{
 					the_title( '<h1 class="entry-title">', '</h1>' );
 				}
@@ -45,7 +68,7 @@
 
 		<div class="entry-meta">
 			<?php
-				if ( 'post' == get_post_type() )
+				if ( 'post' == get_post_type() || 'friday-sermon' == get_post_type())
 					twentyfourteen_posted_on();
 
 				if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
