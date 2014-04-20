@@ -74,8 +74,11 @@
 
 		<div class="entry-meta">
 			<?php
-				if ( 'post' == get_post_type() || 'friday-sermon' == get_post_type())
+				if ( 'post' == get_post_type() || 'friday-sermon' == get_post_type()){
 					twentyfourteen_posted_on();
+					$profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
+					echo get_post_meta($profile,'wpcf-profile-position',TRUE); 
+				}
 
 				if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
 			?>
