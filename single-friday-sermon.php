@@ -22,7 +22,7 @@ get_header(); ?>
 					 * (where ___ is the post format) and that will be used instead.
 					 */
 					global $wp_query; $postID = $wp_query->post->ID;
-					get_template_part( 'content', get_post_format() );
+					get_template_part( 'content-friday-sermon', get_post_format() );
 
 					// Previous/next post navigation.
 					twentyfourteen_post_nav();

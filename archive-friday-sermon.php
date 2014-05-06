@@ -58,7 +58,7 @@ get_header(); ?>
 						 * use this in a child theme, then include a file called called content-___.php
 						 * (where ___ is the post format) and that will be used instead.
 						 */
-						get_template_part( 'content', get_post_format() );
+						get_template_part( 'content-friday-sermon', get_post_format() );
 
 					endwhile;
 					// Previous/next page navigation.
@@ -74,6 +74,6 @@ get_header(); ?>
 	</section><!-- #primary -->
 
 <?php
-//get_sidebar( 'content' );
+get_sidebar( 'content' );
 get_sidebar();
 get_footer();
