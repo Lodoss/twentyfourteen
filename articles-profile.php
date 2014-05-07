@@ -17,7 +17,7 @@
  * @since Twenty Fourteen 1.0
  */
 /*
-Template Name:Profiles Archive
+Template Name:Filter Article Archive
 */
 
 get_header(); 
@@ -30,9 +30,7 @@ query_posts(array(
 ?>
 	<section id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
-
-			<?php if ( have_posts() ) : ?>
-
+		<?php if ( have_posts() ) : ?>
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php
@@ -46,7 +44,7 @@ query_posts(array(
 							printf( __( 'Yearly Archives: %s', 'twentyfourteen' ), get_the_date( _x( 'Y', 'yearly archives date format', 'twentyfourteen' ) ) );
 
 						else :
-							_e( 'Profile Archives', 'twentyfourteen' );
+							_e( 'Articles Archives', 'twentyfourteen' );
 
 						endif;
 					?>
@@ -55,8 +53,9 @@ query_posts(array(
 
 			<?php
 					// Start the Loop.
-					$args = array( 'post_type' => 'profile', 'posts_per_page' => 10 );
+					$args = array( 'post_type' => 'articles', 'posts_per_page' => 10 );
 					$loop = new WP_Query( $args );
+					//var_dump($loop);
 					while ( $loop->have_posts() ) : $loop->the_post();
 
 						/*
@@ -64,7 +63,7 @@ query_posts(array(
 						 * use this in a child theme, then include a file called called content-___.php
 						 * (where ___ is the post format) and that will be used instead.
 						 */
-						get_template_part( 'content', get_post_format() );
+						get_template_part( 'content-articles', get_post_format() );
 
 					endwhile;
 					// Previous/next page navigation.
@@ -72,7 +71,7 @@ query_posts(array(
 
 				else :
 					// If no content, include the "No posts found" template.
-					get_template_part( 'content', 'none' );
+					get_template_part( 'content-articles', 'none' );
 
 				endif;
 			?>
