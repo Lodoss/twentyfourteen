@@ -59,7 +59,7 @@ if ( ! is_active_sidebar( 'sidebar-2' ) ) {
 					while ( $the_query->have_posts() ) {
 						$the_query->the_post();
 						?>
-								<li class="cat-item"><a href="articles-profile.php?pid=<?php echo get_the_ID() ?>" title="">?php echo  get_the_title(). " (".get_post_meta( get_the_ID(), 'wpcf-profile-position', true ).")"; ?></a></li>
+								<li class="cat-item"><a href="articles-profile.php?pid=<?php echo get_the_ID() ?>" title=""><?php echo  get_the_title(). " (".get_post_meta( get_the_ID(), 'wpcf-profile-position', true ).")"; ?></a></li>
 					<?php
 					}
 				} else {
