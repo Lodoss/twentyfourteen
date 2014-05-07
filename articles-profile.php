@@ -17,7 +17,7 @@
  * @since Twenty Fourteen 1.0
  */
 /*
-Template Name:Article Archive
+Template Name:Filter Article Archive
 */
 
 get_header(); 
