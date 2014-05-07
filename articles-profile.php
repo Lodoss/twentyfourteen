@@ -17,7 +17,7 @@
  * @since Twenty Fourteen 1.0
  */
 /*
-Template Name:Filter Article Archive
+Template Name:Article Archive
 */
 
 get_header(); 
@@ -25,12 +25,37 @@ $profid = $_REQUEST["pid"];
 //echo $profid;
 query_posts(array( 
         'post_type' => 'articles'
-    ) );  
+    ) );
+$profileList =  array();  
+while (have_posts()) : the_post();
+	$profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
+	if (!(empty( $profile ))) { 
+	$profileList[] = $profile;
+	}
+		  
+        
+endwhile;
 
+
+$argsauthors = array('post_type' => 'profile',  'post__in' => $profileList );
+$the_query = new WP_Query( $argsauthors );
+
+$args = array(
+  'post_type' => 'articles',
+  'posts_per_page' => 10,
+  'meta_query' => array(
+  'relation' => 'AND',
+	   array('key'     => '_wpcf_belongs_profile_id',
+		'value'   => $profid,
+		'compare' => '=')
+  )
+);
+
+$books = new WP_Query($args);
 ?>
 	<section id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
-		<?php if ( have_posts() ) : ?>
+		<?php if ( $books->have_posts() ) : ?>
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php
@@ -53,10 +78,10 @@ query_posts(array(
 
 			<?php
 					// Start the Loop.
-					$args = array( 'post_type' => 'articles', 'posts_per_page' => 10 );
-					$loop = new WP_Query( $args );
+					//$args = array( 'post_type' => 'articles', 'posts_per_page' => 10 );
+					//$loop = new WP_Query( $args );
 					//var_dump($loop);
-					while ( $loop->have_posts() ) : $loop->the_post();
+					while ( $books->have_posts() ) : $books->the_post();
 
 						/*
 						 * Include the post format-specific template for the content. If you want to
@@ -71,7 +96,7 @@ query_posts(array(
 
 				else :
 					// If no content, include the "No posts found" template.
-					get_template_part( 'content-articles', 'none' );
+					//get_template_part( 'content-articles', 'none' );
 
 				endif;
 			?>
