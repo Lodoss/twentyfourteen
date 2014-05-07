@@ -34,7 +34,7 @@ if ( ! is_active_sidebar( 'sidebar-2' ) ) {
 				 
 				$profid = $_REQUEST["pid"];
 				query_posts(array( 
-						'post_type' => 'books'
+						'post_type' => 'articles'
 					) );  
 				
 				$profileList =  array();
