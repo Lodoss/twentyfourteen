@@ -61,7 +61,7 @@
 					set_post_thumbnail( $post_id, $attach_id );
 				}
 				the_title( '<h1 class="entry-title">', '</h1>' );
-				echo ("<img src=".$thumbnailyoutube.">");
+				
 			else :
 				the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
 			endif;
@@ -74,7 +74,7 @@
 					$profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
 					if ($profile !=''){
 					//var_dump($profile);
-					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " (".get_post_meta($profile,'wpcf-profile-position',TRUE). ")</a> ";        
+					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " <br> ".get_post_meta($profile,'wpcf-profile-position',TRUE). "</a> ";        
 					}
 					else{
 					//echo "NOT-HELLO";

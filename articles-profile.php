@@ -35,6 +35,7 @@ while (have_posts()) : the_post();
 		  
         
 endwhile;
+wp_reset_postdata();
 
 
 $argsauthors = array('post_type' => 'profile',  'post__in' => $profileList );
@@ -72,6 +73,7 @@ $books = new WP_Query($args);
 							_e( 'Articles Archives', 'twentyfourteen' );
 
 						endif;
+						wp_reset_postdata();
 					?>
 				</h1>
 			</header><!-- .page-header -->
