@@ -43,12 +43,12 @@
 				$profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
 				if ($profile !=''){
 					//var_dump($profile);
-					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " (".get_post_meta($profile,'wpcf-profile-position',TRUE). ")</a> ";        
+					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " <br> ".get_post_meta($profile,'wpcf-profile-position',TRUE). "</a> ";        
 				}
 				else{
 					//echo "NOT-HELLO";
 				}
-				echo "(".get_the_term_list( $post->ID, 'article-cat', '', ', ', '' ).")";
+				echo "<br>(".get_the_term_list( $post->ID, 'article-cat', '', ', ', '' ).")";
 			?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
