@@ -106,6 +106,6 @@ $books = new WP_Query($args);
 	</section><!-- #primary -->
 
 <?php
-//get_sidebar( 'content' );
+get_sidebar( 'articles' );
 get_sidebar();
 get_footer();
