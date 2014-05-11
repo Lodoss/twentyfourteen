@@ -74,10 +74,11 @@
 					$profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
 					if ($profile !=''){
 					//var_dump($profile);
+					twentyfourteen_posted_on();
 					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " <br> ".get_post_meta($profile,'wpcf-profile-position',TRUE). "</a> ";        
 					}
 					else{
-					//echo "NOT-HELLO";
+					//empty for now
 					}
 
 				if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
