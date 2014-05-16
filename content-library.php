@@ -3,7 +3,7 @@
  * The default template for displaying content
  *
  * Used for both single and index/archive/search.
- *
+ * By Ammar
  * @package WordPress
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
@@ -43,11 +43,12 @@
 				$profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
 				if ($profile !=''){
 					//var_dump($profile);
-					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " (".get_post_meta($profile,'wpcf-profile-position',TRUE). ")</a>";  
+					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " (".get_post_meta($profile,'wpcf-profile-position',TRUE). ")</a> ";        
 				}
 				else{
-					echo "NOT-HELLO";
+					//echo "NOT-HELLO";
 				}
+				echo "(".get_the_term_list( $post->ID, 'literature-type', '', ', ', '' ).")";
 			?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
