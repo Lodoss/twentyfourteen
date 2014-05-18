@@ -39,7 +39,7 @@ get_header(); ?>
 							printf( __( 'Yearly Archives: %s', 'twentyfourteen' ), get_the_date( _x( 'Y', 'yearly archives date format', 'twentyfourteen' ) ) );
 
 						else :
-							_e( 'Archives', 'twentyfourteen' );
+							_e( 'FSArchives', 'twentyfourteen' );
 
 						endif;
 					?>

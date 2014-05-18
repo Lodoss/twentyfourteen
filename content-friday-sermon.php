@@ -8,6 +8,9 @@
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
  */
+ /*
+Template Name:Friday Sermon Content
+*/
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>
