@@ -92,7 +92,7 @@
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
-	<?php if ( is_search() ) : ?>
+	<?php if ( is_search() || is_archive()) : ?>
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->

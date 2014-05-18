@@ -524,3 +524,19 @@ require get_template_directory() . '/inc/customizer.php';
 if ( ! class_exists( 'Featured_Content' ) && 'plugins.php' !== $GLOBALS['pagenow'] ) {
 	require get_template_directory() . '/inc/featured-content.php';
 }
+
+/*
+Yearly archive rewrite rules
+*/
+// Add custom rewrite rules to handle things like years in custom post archives
+function add_rewrite_rules($aRules) {
+    $aNewRules = array(
+        'friday-sermon/([0-9]{4})/page/?([0-9]{1,})/?$' => 'index.php?post_type=friday-sermon&year=$matches[1]&paged=$matches[2]',
+        'friday-sermon/([0-9]{4})/?$' => 'index.php?post_type=friday-sermon&year=$matches[1]',
+    );
+    $aRules = $aNewRules + $aRules;
+    return $aRules;
+}
+
+// hook add_rewrite_rules function into rewrite_rules_array
+add_filter('rewrite_rules_array', 'add_rewrite_rules');
