@@ -7,11 +7,12 @@
  * @since Twenty Fourteen 1.0
  */
 
-if ( ! is_active_sidebar( 'sidebar-2' ) ) {
+if ( ! is_active_sidebar( 'sidebar-4' ) ) {
 	return;
 }
 ?>
 <div id="article-sidebar" class="content-sidebar widget-area" role="complementary">
+	<?php dynamic_sidebar( 'sidebar-4' ); ?>
 	<aside id="categories-3" class="widget widget_categories">
 		<h1 class="widget-title">Article Categories</h1>
         <?php
