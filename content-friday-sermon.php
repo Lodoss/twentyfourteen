@@ -13,7 +13,7 @@ Template Name:Friday Sermon Content
 */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php if (is_single($post)){
 		//empty
 	}else{
@@ -33,7 +33,7 @@ Template Name:Friday Sermon Content
 				$summary = types_render_field("enter-summary-or-text-url-here", array("argument1"=>"value1","argument2"=>"value2","argument2"=>"value2"));
 				$sermondate = types_render_field("friday-sermon-date", array("argument1"=>"value1","argument2"=>"value2","argument2"=>"value2"));
 				//$thumbnailyoutube = "http://img.youtube.com/vi/".$youtubecode."/hqdefault.jpg";
-				echo ("<div style=\"text-align: center; margin: auto\"><object type=\"application/x-shockwave-flash\" style=\"width:672px; height:360px;\" data=\"http://www.youtube.com/v/".$youtubecode."?color2=FBE9EC&amp;version=3&amp;fs=1\">
+				echo ("<div style=\"text-align: center; margin: auto\"><object type=\"application/x-shockwave-flash\" style=\"width:1280px; height:720px;\" data=\"http://www.youtube.com/v/".$youtubecode."?color2=FBE9EC&amp;version=3&amp;fs=1\">
 			        <param name=\"movie\" value=\"http://www.youtube.com/v/".$youtubecode."?color2=FBE9EC&amp;version=3&amp;fs=1\" />
 			        <param name=\"allowFullScreen\" value=\"true\" />
 			        <param name=\"allowscriptaccess\" value=\"always\" />

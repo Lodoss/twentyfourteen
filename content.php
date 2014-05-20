@@ -22,9 +22,7 @@
 			endif;
 
 			if ( is_single() ) :
-
-					the_title( '<h1 class="entry-title">', '</h1>' );
-				
+				the_title( '<h1 class="entry-title">', '</h1>' );
 			else :
 				the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
 			endif;
@@ -32,7 +30,8 @@
 
 		<div class="entry-meta">
 			<?php
-			 if ( 'post' == get_post_type())
+				if ( 'post' == get_post_type() )
+					twentyfourteen_posted_on();
 
 				if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
 			?>
@@ -45,38 +44,13 @@
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
-	<?php if ( is_search() || is_home() || is_category()) : ?>
+	<?php if ( is_search() ) : ?>
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 	<?php else : ?>
 	<div class="entry-content">
 		<?php
-		$profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
-		if ( 'post' == get_post_type() &&  $profile !=''){
-		
-		echo ("<div style=\"padding:10px;border:2px solid gray;\">");
-		echo get_post_meta($profile,'wpcf-profile-position',TRUE); 
-		echo("<br>");
-		echo get_post_meta($profile,'wpcf-short-description',TRUE);
-		echo("<br>");
-		echo get_the_post_thumbnail( $profile, 'twentyfourteen-author-box');
-		echo ("</div>");
-		}else{
-			
-		}
-		if('profile' == get_post_type()){
-					$position = types_render_field("profile-position", array("argument1"=>"value1","argument2"=>"value2","argument2"=>"value2"));
-					$dateofbirth = types_render_field("date-of-birth", array("argument1"=>"value1","argument2"=>"value2","argument2"=>"value2"));
-					$dateofdeath = types_render_field("date-of-death", array("argument1"=>"value1","argument2"=>"value2","argument2"=>"value2"));
-					$mediumdesc = types_render_field("medium-description", array("argument1"=>"value1","argument2"=>"value2","argument2"=>"value2"));
-					$shortdesc =  types_render_field("short-description", array("argument1"=>"value1","argument2"=>"value2","argument2"=>"value2"));
-					echo "<strong>Position:</strong> ".$position."<br>";
-					echo "<strong>Date of Birth:</strong> ".$dateofbirth."<br>";
-					echo "<strong>Date of Death:</strong> ".$dateofdeath."<br>";
-					echo "<strong>Description:</strong> ".$mediumdesc."<br>";
-					echo "<strong>Short Description:</strong> ".$shortdesc."<br>";
-		}
 			the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyfourteen' ) );
 			wp_link_pages( array(
 				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfourteen' ) . '</span>',
