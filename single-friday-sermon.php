@@ -6,23 +6,29 @@
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
  */
-/*
-Single Post Template:Friday Sermon
-*/
+
 get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 			<?php
+			$profileList =  array();
 				// Start the Loop.
 				while ( have_posts() ) : the_post();
+
+		  ?>
+          <a href="<?php echo  get_permalink( $profile ); ?>">
+
+		  <?php
+		  
 					/*
 					 * Include the post format-specific template for the content. If you want to
 					 * use this in a child theme, then include a file called called content-___.php
 					 * (where ___ is the post format) and that will be used instead.
 					 */
-					global $wp_query; $postID = $wp_query->post->ID;
 					get_template_part( 'content-friday-sermon', get_post_format() );
+					//echo  get_the_title($profile);
+					
 
 					// Previous/next post navigation.
 					twentyfourteen_post_nav();
@@ -35,8 +41,7 @@ get_header(); ?>
 			?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
-
 <?php
-//get_sidebar( 'content' );
+get_sidebar( 'articles' );
 get_sidebar();
 get_footer();
