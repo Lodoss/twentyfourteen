@@ -56,6 +56,7 @@
 				$profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
 				if ($profile !=''){
 					//var_dump($profile);
+					echo(twentyfourteen_posted_on()."<br>");
 					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " <br> ".get_post_meta($profile,'wpcf-profile-position',TRUE). "</a> ";
 				}
 				else{
