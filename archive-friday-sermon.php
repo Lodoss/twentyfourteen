@@ -74,6 +74,6 @@ get_header(); ?>
 	</section><!-- #primary -->
 
 <?php
-get_sidebar('content');
+get_sidebar('fridaysermon');
 get_sidebar();
 get_footer();
