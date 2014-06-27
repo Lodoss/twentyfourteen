@@ -42,6 +42,6 @@ get_header(); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 <?php
-get_sidebar( 'articles' );
+get_sidebar( 'fridaysermon' );
 get_sidebar();
 get_footer();
