@@ -11,7 +11,7 @@
  * and author.php for Author archives.
  *
  * @link http://codex.wordpress.org/Template_Hierarchy
- *
+ * By AMMAR
  * @package WordPress
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
