@@ -1,6 +1,6 @@
 <?php
 /**
- * The default template for displaying content of Library
+ * The default template for displaying content
  *
  * Used for both single and index/archive/search.
  * By Ammar
@@ -41,14 +41,23 @@
 
 				edit_post_link( __( 'Edit', 'twentyfourteen' ), '<span class="edit-link">', '</span>' );
 				$profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
+				
 				if ($profile !=''){
 					//var_dump($profile);
-					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " (".get_post_meta($profile,'wpcf-profile-position',TRUE). ")</a> ";        
+					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " (".get_post_meta($profile,'wpcf-profile-position',TRUE). ")</a> ";
+					
 				}
 				else{
 					//echo "NOT-HELLO";
 				}
 				echo "(".get_the_term_list( $post->ID, 'literature-type', '', ', ', '' ).")";
+				if(get_post_meta($post->ID, 'wpcf-pdf-url', true) != "")
+					echo "<a href='".esc_url(get_post_meta($post->ID, 'wpcf-pdf-url', true))."'><img src='".esc_url(get_template_directory_uri()."/images/pdf.png")."' alt='View PDF' /></a> ";                
+				if(get_post_meta($post->ID, 'wpcf-epub-url', true) != "")
+					echo "<a href='".esc_url(get_post_meta($post->ID, 'wpcf-epub-url', true))."'><img src='".esc_url(get_template_directory_uri()."/images/epub.png")."' alt='View ePub' /></a> ";
+				if(get_post_meta($post->ID, 'wpcf-epub-url', true) != "")
+					echo "<a href='".esc_url(get_post_meta($post->ID, 'wpcf-online-html', true))."'><img src='".esc_url(get_template_directory_uri()."/images/html.png")."' alt='View HTML' /></a> ";                                
+				//echo "WHAT";	
 			?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
