@@ -44,13 +44,13 @@
 				
 				if ($profile !=''){
 					//var_dump($profile);
-					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " (".get_post_meta($profile,'wpcf-profile-position',TRUE). ")</a> ";
+					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " <br /> ".get_post_meta($profile,'wpcf-profile-position',TRUE). "</a> ";
 					
 				}
 				else{
 					//echo "NOT-HELLO";
 				}
-				echo "(".get_the_term_list( $post->ID, 'literature-type', '', ', ', '' ).")";
+				echo "<br />(".get_the_term_list( $post->ID, 'literature-type', '', ', ', '' ).")<br />";
 				if(get_post_meta($post->ID, 'wpcf-pdf-url', true) != "")
 					echo "<a href='".esc_url(get_post_meta($post->ID, 'wpcf-pdf-url', true))."'><img src='".esc_url(get_template_directory_uri()."/images/pdf.png")."' alt='View PDF' /></a> ";                
 				if(get_post_meta($post->ID, 'wpcf-epub-url', true) != "")
