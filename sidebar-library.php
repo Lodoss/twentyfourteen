@@ -10,10 +10,12 @@
 if ( ! is_active_sidebar( 'sidebar-6' ) ) {
 	return;
 }
-if(is_archive()){
+
 ?>
 <div id="article-sidebar" class="content-sidebar widget-area" role="complementary">
-	<?php dynamic_sidebar( 'sidebar-6' ); ?>
+	<?php dynamic_sidebar( 'sidebar-6' ); 
+	if(is_archive()){
+	?>
 	<aside id="categories-3" class="widget widget_categories">
 		<h1 class="widget-title">Books Categories</h1>
         <?php
@@ -74,7 +76,8 @@ if(is_archive()){
 			  ?></ul>
 
             </aside>
-</div><!-- #library-sidebar -->
-<?php
+            <?php
 }
 ?>
+</div><!-- #library-sidebar -->
+
