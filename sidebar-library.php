@@ -12,7 +12,7 @@ if ( ! is_active_sidebar( 'sidebar-6' ) ) {
 }
 ?>
 <div id="article-sidebar" class="content-sidebar widget-area" role="complementary">
-	<?php dynamic_sidebar( 'sidebar-4' ); ?>
+	<?php dynamic_sidebar( 'sidebar-6' ); ?>
 	<aside id="categories-3" class="widget widget_categories">
 		<h1 class="widget-title">Books Categories</h1>
         <?php
