@@ -7,7 +7,7 @@
  * @since Twenty Fourteen 1.0
  */
 
-if ( ! is_active_sidebar( 'sidebar-4' ) ) {
+if ( ! is_active_sidebar( 'sidebar-6' ) ) {
 	return;
 }
 ?>
