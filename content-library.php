@@ -53,9 +53,11 @@
 				echo "<br />(".get_the_term_list( $post->ID, 'literature-type', '', ', ', '' ).")<br />";
 				if(get_post_meta($post->ID, 'wpcf-pdf-url', true) != "")
 					echo "<a href='".esc_url(get_post_meta($post->ID, 'wpcf-pdf-url', true))."'><img src='".esc_url(get_template_directory_uri()."/images/pdf.png")."' alt='View PDF' /></a> ";                
-				if(get_post_meta($post->ID, 'wpcf-epub-url', true) != "")
-					echo "<a href='".esc_url(get_post_meta($post->ID, 'wpcf-epub-url', true))."'><img src='".esc_url(get_template_directory_uri()."/images/epub.png")."' alt='View ePub' /></a> ";
-				if(get_post_meta($post->ID, 'wpcf-epub-url', true) != "")
+				
+				if(get_post_meta($post->ID, 'wpcf-e-pub-url', true) != "")
+					echo "<a href='".esc_url(get_post_meta($post->ID, 'wpcf-e-pub-url', true))."'><img src='".esc_url(get_template_directory_uri()."/images/epub.png")."' alt='View ePub' /></a> ";
+				
+				if(get_post_meta($post->ID, 'wpcf-online-html', true) != "")
 					echo "<a href='".esc_url(get_post_meta($post->ID, 'wpcf-online-html', true))."'><img src='".esc_url(get_template_directory_uri()."/images/html.png")."' alt='View HTML' /></a> ";                                
 				//echo "WHAT";	
 			?>
