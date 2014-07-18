@@ -117,7 +117,7 @@ else
 						
 							echo '<li>';
 							if(has_post_thumbnail($child_post->ID)){
-								get_the_post_thumbnail($child_post->ID,'thumbnail');
+								echo get_the_post_thumbnail($child_post->ID,'thumbnail');
 							}
 							echo'<a href="'.get_permalink($child_post->ID).'">'.get_the_title($child_post->ID).'</a></li>';
 						}
