@@ -85,21 +85,10 @@ else
         <?php
 				$profid = $_REQUEST["pid"];
 				
-				query_posts(array( 
-						'post_type' => 'library'
-					) );  
-				/*
-				$profileList =  array();
-				while (have_posts()) : the_post(); 
-						  $profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
-						  if (!(empty( $profile ))) { 
-						  	$profileList[] = $profile;
-						  }
-						  
-						
-				endwhile;*/
+				
 				wp_reset_postdata();
 				$profile = get_post_meta(the_post()->ID, '_wpcf_belongs_profile_id', true);
+				var_dump($profile);
 				$argsbooks = array('post_type' => 'library',  'post__in' => $profile );
 				$the_query = new WP_Query( $argsbooks );
 					
