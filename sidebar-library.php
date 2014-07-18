@@ -111,11 +111,11 @@ else
 					
 					
 				// The Loop
-				if ( $child_posts->have_posts() ) {
+				
 					foreach ($child_posts as $child_post) {
 						echo '<li><a href="'.get_permalink($child_post->ID).'">'.get_the_title($child_post->ID).'</a></li>';
 					  }	  
-				}
+				
 				/* Restore original Post Data */
 				wp_reset_postdata();
 			?>
