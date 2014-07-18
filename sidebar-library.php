@@ -83,16 +83,27 @@ else
 	<aside id="categories-3" class="widget widget_categories">
 		
         <?php
-				$profid = $_REQUEST["pid"];
 				
-				
-				wp_reset_postdata();
+				/*
+				$profileList =  array();
+				while (have_posts()) : the_post(); 
+						  $profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
+						  if (!(empty( $profile ))) { 
+						  	$profileList[] = $profile;
+						  }
+						  
+						
+				endwhile;
+				wp_reset_postdata();*/
 				$profile = get_post_meta(get_the_ID(), '_wpcf_belongs_profile_id', true);
-				var_dump($profile);
-				$argsbooks = array('post_type' => 'library',  'post__in' => $profile );
+				$author = get_post_meta(get_the_ID(), 'wpcf-author', true);
+				$argsbooks = array('post_type' => 'library',  'post_parent' => $profile );
 				$the_query = new WP_Query( $argsbooks );
 					
-					
+				?>
+                <h1 class="widget-title">More by <a href="<?php echo get_bloginfo('url') ?>/library-profile/?pid=<?php echo $profile; ?>" title=""><?php echo  $auther; ?></a></h1>
+                <ul>
+                <?	
 					
 					
 				// The Loop
@@ -101,28 +112,18 @@ else
 					while ( $the_query->have_posts() ) {
 						$the_query->the_post();
 						?>
-								<h1 class="widget-title">More by <a href="<?php echo get_bloginfo('url') ?>/library-profile/?pid=<?php echo get_the_ID() ?>" title=""><?php echo  get_the_title()?></a></h1>
+							<li><a href="<?php echo get_permalink($get_the_ID()) ?>"><?php echo get_the_title() ?></a></li>	
 					<?php
 					}
 				} else {
 					?>
-						<h1 class="widget-title">More from this author</a>
+						
                         <?
 				}
 				/* Restore original Post Data */
 				wp_reset_postdata();
 			?>
-            
-				
-                <ul>
-                <?php 
-				 
-				
-				
-			  
-			  
-			  ?></ul>
-
+            </ul>
             </aside> <?
 }
 ?>
