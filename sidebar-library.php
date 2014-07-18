@@ -101,7 +101,7 @@ else
 				$the_query = new WP_Query( $argsbooks );
 					
 				?>
-                <h1 class="widget-title">More by <a href="<?php echo get_bloginfo('url') ?>/library-profile/?pid=<?php echo $profile; ?>" title=""><?php echo  $auther; ?></a></h1>
+                <h1 class="widget-title">More by <a href="<?php echo get_bloginfo('url') ?>/library-profile/?pid=<?php echo $profile; ?>" title=""><?php echo  $author; ?></a></h1>
                 <ul>
                 <?	
 					
