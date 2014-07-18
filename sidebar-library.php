@@ -81,13 +81,14 @@ if ( ! is_active_sidebar( 'sidebar-6' ) ) {
 else
 { ?>
 	<aside id="categories-3" class="widget widget_categories">
-		<h1 class="widget-title">Books Categories</h1>
+		
         <?php
 				$profid = $_REQUEST["pid"];
+				
 				query_posts(array( 
 						'post_type' => 'library'
 					) );  
-				
+				/*
 				$profileList =  array();
 				while (have_posts()) : the_post(); 
 						  $profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
@@ -96,10 +97,11 @@ else
 						  }
 						  
 						
-				endwhile;
+				endwhile;*/
 				wp_reset_postdata();
-				$argsauthors = array('post_type' => 'profile',  'post__in' => $profileList );
-				$the_query = new WP_Query( $argsauthors );
+				$profile = get_post_meta(the_post()->ID, '_wpcf_belongs_profile_id', true);
+				$argsbooks = array('post_type' => 'library',  'post__in' => $profile );
+				$the_query = new WP_Query( $argsbooks );
 					
 					
 					
