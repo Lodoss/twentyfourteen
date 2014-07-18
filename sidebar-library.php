@@ -117,7 +117,7 @@ else
 						
 							echo '<li>';
 							if(has_post_thumbnail($child_post->ID)){
-								echo get_the_post_thumbnail($child_post->ID,'twentyfourteen-related-sidebar-width'). "<br /><br />";
+								echo get_the_post_thumbnail($child_post->ID,'twentyfourteen-related-sidebar-width'). "<br style='line-height:10px' />";
 							}
 							echo'<a href="'.get_permalink($child_post->ID).'">'.get_the_title($child_post->ID).'</a></li>';
 						}
