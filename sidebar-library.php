@@ -94,7 +94,7 @@ else
 						  
 						
 				endwhile;*/
-				
+				$currentId = get_the_ID();
 				$profile = get_post_meta(get_the_ID(), '_wpcf_belongs_profile_id', true);
 				$author = get_post_meta(get_the_ID(), 'wpcf-author', true);
 				wp_reset_postdata();
@@ -113,7 +113,10 @@ else
 				// The Loop
 				
 					foreach ($child_posts as $child_post) {
-						echo '<li><a href="'.get_permalink($child_post->ID).'">'.get_the_title($child_post->ID).'</a></li>';
+						if($child_post->ID != $currentId){
+						
+							echo '<li><a href="'.get_permalink($child_post->ID).'">'.get_the_title($child_post->ID).'</a></li>';
+						}
 					  }	  
 				
 				/* Restore original Post Data */
