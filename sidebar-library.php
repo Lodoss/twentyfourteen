@@ -87,7 +87,7 @@ else
 				
 				
 				wp_reset_postdata();
-				$profile = get_post_meta(the_post()->ID, '_wpcf_belongs_profile_id', true);
+				$profile = get_post_meta(get_the_ID(), '_wpcf_belongs_profile_id', true);
 				var_dump($profile);
 				$argsbooks = array('post_type' => 'library',  'post__in' => $profile );
 				$the_query = new WP_Query( $argsbooks );
