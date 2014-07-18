@@ -96,8 +96,8 @@ else
 				endwhile;
 				wp_reset_postdata();*/
 				$profile = get_post_meta(get_the_ID(), '_wpcf_belongs_profile_id', true);
-				$author = get_post_meta(get_the_ID(), 'author', true);
-				$argsbooks = array('post_type' => 'library',  'post_parent' => $profile );
+				$author = get_post_meta(get_the_ID(), 'wpcf-author', true);
+				$argsbooks = array('post_type' => 'library',  '_wpcf_belongs_profile_id' => $profile );
 				$the_query = new WP_Query( $argsbooks );
 					
 				?>
