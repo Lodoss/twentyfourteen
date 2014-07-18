@@ -93,32 +93,28 @@ else
 						  }
 						  
 						
-				endwhile;
-				wp_reset_postdata();*/
+				endwhile;*/
+				
 				$profile = get_post_meta(get_the_ID(), '_wpcf_belongs_profile_id', true);
 				$author = get_post_meta(get_the_ID(), 'wpcf-author', true);
-				$argsbooks = array('post_type' => 'library',  '_wpcf_belongs_profile_id' => $profile );
-				$the_query = new WP_Query( $argsbooks );
+				wp_reset_postdata();
+				//$argsauthors = array('post_type' => 'profile', 'id' => $profile );
+				global $post;
+				$post=get_post($profile);
+				//$the_query = new WP_Query( $argsauthors );
+				$child_posts = types_child_posts('library');
 					
 				?>
-                <h1 class="widget-title">More by <a href="<?php echo get_bloginfo('url') ?>/library-profile/?pid=<?php echo $profile; ?>" title=""><?php echo  $author; ?></a></h1>
+                <h1 class="widget-title">More by <a href="<?php echo get_bloginfo('url') ?>/library-profile/?pid=<?php echo $profile; ?>" title=""><?php echo  get_the_title(); ?></a></h1>
                 <ul>
                 <?	
 					
 					
 				// The Loop
-				if ( $the_query->have_posts() ) {
-					  
-					while ( $the_query->have_posts() ) {
-						$the_query->the_post();
-						?>
-							<li><a href="<?php echo get_permalink($get_the_ID()) ?>"><?php echo get_the_title() ?></a></li>	
-					<?php
-					}
-				} else {
-					?>
-						
-                        <?
+				if ( $child_posts->have_posts() ) {
+					foreach ($child_posts as $child_post) {
+						echo '<li><a href="'.get_permalink($child_post->ID).'">'.get_the_title($child_post->ID).'</a></li>';
+					  }	  
 				}
 				/* Restore original Post Data */
 				wp_reset_postdata();
