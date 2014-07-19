@@ -38,5 +38,5 @@ get_header(); ?>
 
 <?php
 //get_sidebar( 'content' );
-get_sidebar('content');
+get_sidebar('photo-gallery');
 get_footer();

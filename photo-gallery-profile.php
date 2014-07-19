@@ -1,7 +1,7 @@
 <?php
 /**
- * The template for displaying photo-gallery pages
- *
+ * The template for displaying articles Archives based on profile pages
+ * By Ammar
  * Used to display archive-type pages if nothing more specific matches a query.
  * For example, puts together date-based pages if no date.php file exists.
  *
@@ -16,14 +16,47 @@
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
  */
+/*
+Template Name:Filter Photo Gallery Archive
+*/
 
-get_header(); ?>
+get_header(); 
+$profid = $_REQUEST["pid"];
+//echo $profid;
+query_posts(array( 
+        'post_type' => 'photo-gallery'
+    ) );
+$profileList =  array();  
+while (have_posts()) : the_post();
+	$profile = get_post_meta($post->ID, '_wpcf_belongs_profile_id', true);
+	if (!(empty( $profile ))) { 
+	$profileList[] = $profile;
+	}
+		  
+        
+endwhile;
+wp_reset_postdata();
 
+
+$argsauthors = array('post_type' => 'profile',  'post__in' => $profileList );
+$the_query = new WP_Query( $argsauthors );
+
+$args = array(
+  'post_type' => 'photo-gallery',
+  'posts_per_page' => 10,
+  'meta_query' => array(
+  'relation' => 'AND',
+	   array('key'     => '_wpcf_belongs_profile_id',
+		'value'   => $profid,
+		'compare' => '=')
+  )
+);
+
+$gallery = new WP_Query($args);
+?>
 	<section id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
-
-			<?php if ( have_posts() ) : ?>
-
+		<?php if ( $gallery->have_posts() ) : ?>
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php
@@ -37,16 +70,20 @@ get_header(); ?>
 							printf( __( 'Yearly Archives: %s', 'twentyfourteen' ), get_the_date( _x( 'Y', 'yearly archives date format', 'twentyfourteen' ) ) );
 
 						else :
-							_e( 'Taxonomy photo-gallery Archives', 'twentyfourteen' );
+							_e( 'Articles Archives', 'twentyfourteen' );
 
 						endif;
+						wp_reset_postdata();
 					?>
 				</h1>
 			</header><!-- .page-header -->
 
 			<?php
 					// Start the Loop.
-					while ( have_posts() ) : the_post();
+					//$args = array( 'post_type' => 'articles', 'posts_per_page' => 10 );
+					//$loop = new WP_Query( $args );
+					//var_dump($loop);
+					while ( $gallery->have_posts() ) : $gallery->the_post();
 
 						/*
 						 * Include the post format-specific template for the content. If you want to
@@ -61,7 +98,7 @@ get_header(); ?>
 
 				else :
 					// If no content, include the "No posts found" template.
-					get_template_part( 'content', 'none' );
+					//get_template_part( 'content-articles', 'none' );
 
 				endif;
 			?>
@@ -70,5 +107,5 @@ get_header(); ?>
 
 <?php
 get_sidebar( 'photo-gallery' );
-//get_sidebar();
+get_sidebar();
 get_footer();

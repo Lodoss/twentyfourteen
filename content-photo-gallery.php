@@ -14,23 +14,26 @@
 	<?php twentyfourteen_post_thumbnail(); ?>
 
 	<header class="entry-header">
-		<?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && twentyfourteen_categorized_blog() ) : ?>
+		<?php if ( in_array( 'gallery-cat', get_object_taxonomies( get_post_type() ) ) && twentyfourteen_categorized_blog() ) : ?>
 		<div class="entry-meta">
-			<span class="cat-links"><?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'twentyfourteen' ) ); ?></span>
+			<span class="cat-links"><?php echo get_the_term_list( $post->ID, 'gallery-cat', '', ', ', '' ); ?></span>
 		</div>
 		<?php
 			endif;
 
 			if ( is_single() ) :
 				the_title( '<h1 class="entry-title">', '</h1>' );
+				the_terms( '<span class="cat-links">', '</span>' );
+				
 			else :
 				the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
+				the_terms( '<span class="cat-links">', '</span>' );
 			endif;
 		?>
 
 		<div class="entry-meta">
 			<?php
-				if ( 'post' == get_post_type() )
+				if ( 'photo-gallery' == get_post_type() )
 					twentyfourteen_posted_on();
 
 				if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) :
@@ -44,13 +47,14 @@
 				
 				if ($profile !=''){
 					//var_dump($profile);
+					echo "<br/>";
 					echo "<a href='".esc_url(get_permalink($profile))."'>".get_the_title($profile) . " <br /> ".get_post_meta($profile,'wpcf-profile-position',TRUE). "</a> ";
 					
 				}
 				else{
 					//echo "NOT-HELLO";
 				}
-				echo "<br />(".get_the_term_list( $post->ID, 'literature-type', '', ', ', '' ).")<br />";
+				
 				
 				//echo "WHAT";	
 			?>
