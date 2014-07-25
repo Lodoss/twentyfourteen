@@ -25,7 +25,7 @@
 	}else{
 	echo('<table>');
 	echo('<tr>');
-	echo('<td style="width:300px;">');
+	echo('<td style="width:40%;">');
 		twentyfourteen_post_thumbnail();
 	echo('</td>');
 	} ?>
@@ -99,7 +99,6 @@
 				echo "<strong>Date of the Friday Sermon:</strong> ".$sermondate."<br>";
 			}else{
 			the_excerpt();
-			
 			}
 			the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyfourteen' ) );
 			wp_link_pages( array(
@@ -108,8 +107,12 @@
 				'link_before' => '<span>',
 				'link_after'  => '</span>',
 			) );
+			
 		?>
-	</div><!-- .entry-content -->
+	</div>
+	</td>
+	</tr>
+	</table><!-- .entry-content -->
 	<?php endif; ?>
 
 	<?php the_tags( '<footer class="entry-meta"><span class="tag-links">', '', '</span></footer>' ); ?>
