@@ -14,17 +14,20 @@
 	<?php twentyfourteen_post_thumbnail(); ?>
 
 	<header class="entry-header">
-		<?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && twentyfourteen_categorized_blog() ) : ?>
+		<?php if ( in_array( 'literature-type', get_object_taxonomies( get_post_type() ) ) && twentyfourteen_categorized_blog() ) : ?>
 		<div class="entry-meta">
-			<span class="cat-links"><?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'twentyfourteen' ) ); ?></span>
+			<span class="cat-links"><?php echo get_the_term_list( $post->ID, 'literature-type', '', ', ', '' ); ?></span>
 		</div>
 		<?php
 			endif;
 
 			if ( is_single() ) :
 				the_title( '<h1 class="entry-title">', '</h1>' );
+				the_terms( '<span class="cat-links">', '</span>' );
+				
 			else :
 				the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
+				the_terms( '<span class="cat-links">', '</span>' );
 			endif;
 		?>
 
@@ -50,7 +53,8 @@
 				else{
 					//echo "NOT-HELLO";
 				}
-				echo "<br />(".get_the_term_list( $post->ID, 'literature-type', '', ', ', '' ).")<br />";
+				
+				echo "<br>";
 				echo "<br>";
 				if(get_post_meta($post->ID, 'wpcf-pdf-url', true) != "")
 					echo "<a href='".esc_url(get_post_meta($post->ID, 'wpcf-pdf-url', true))."'><img src='".esc_url(get_template_directory_uri()."/images/pdf.png")."' alt='View PDF' /></a> ";                
