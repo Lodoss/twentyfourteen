@@ -23,10 +23,14 @@
 			        <param name=\"allowscriptaccess\" value=\"always\" />
         			</object>");
 	}else{
+	echo('<table>');
+	echo('<tr>');
+	echo('<td style="width:300px;">');
 		twentyfourteen_post_thumbnail();
+	echo('</td>');
 	} ?>
-
-	<header class="entry-header" style="margin-top:0px;">
+	
+	<td><header class="entry-header" style="margin-top:0px;">
 		<?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && twentyfourteen_categorized_blog() ) : ?>
 		<div class="entry-meta">
 			<span class="cat-links"><?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'twentyfourteen' ) ); ?></span>
@@ -71,6 +75,9 @@
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
+	</td>
+	</tr>
+	</table>
 	<?php else : ?>
 	<div class="entry-content">
 		<?php
