@@ -913,7 +913,7 @@ span + .edit-link:before,
 .site-header {
 	background-color: #000;
 	max-width: 1260px;
-	position: relative;
+	 position: fixed;
 	width: 100%;
 	z-index: 4;
 }
