@@ -32,6 +32,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
+
 	<?php if ( get_header_image() ) : ?>
 	<div id="site-header">
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
@@ -42,7 +43,13 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-main">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+		<div id="site-header">
+<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+   <img src="http://www.nextgen-web.eu/killer/wp-content/uploads/2014/07/alislam-logo.png" width="40" height="40" alt="">
+  </a>
+ </div>
+			
 
 			<div class="search-toggle">
 				<a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'twentyfourteen' ); ?></a>

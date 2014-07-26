@@ -919,8 +919,9 @@ span + .edit-link:before,
 }
 
 .header-main {
-	min-height: 48px;
-	padding: 0 10px;
+	min-height: 55px;
+	padding: 0px 30px;
+	
 }
 
 .site-title {
@@ -939,13 +940,13 @@ span + .edit-link:before,
 /* Search in the header */
 
 .search-toggle {
-	background-color: #24890d;
+	
 	cursor: pointer;
 	float: right;
-	height: 48px;
+	height: 55px;
 	margin-right: 38px;
 	text-align: center;
-	width: 48px;
+	width: 55px;
 }
 
 .search-toggle:hover,
@@ -957,7 +958,7 @@ span + .edit-link:before,
 	color: #fff;
 	content: "\f400";
 	font-size: 20px;
-	margin-top: 14px;
+	margin-top: 18px;
 }
 
 .search-toggle .screen-reader-text {
@@ -1018,11 +1019,14 @@ the site has a long menu */
 	color: #fff;
 	display: block;
 	text-transform: uppercase;
+	line-height: 55px;
 }
 
 .site-navigation a:hover {
 	color: #41a62a;
 }
+
+
 
 .site-navigation .current_page_item > a,
 .site-navigation .current_page_ancestor > a,
@@ -1044,6 +1048,7 @@ the site has a long menu */
 
 .primary-navigation.toggled-on {
 	padding: 72px 0 36px;
+	background: none repeat scroll 0% 0% #000;
 }
 
 .primary-navigation .nav-menu {
@@ -1078,20 +1083,20 @@ the site has a long menu */
 .menu-toggle {
 	cursor: pointer;
 	font-size: 0;
-	height: 48px;
+	height: 55px;
 	margin: 0;
 	overflow: hidden;
 	position: absolute;
 	top: 0;
 	right: 0;
 	text-align: center;
-	width: 48px;
+	width: 55px;
 }
 
 .menu-toggle:before {
 	color: #fff;
 	content: "\f419";
-	margin-top: 16px;
+	margin-top: 19px;
 }
 
 
@@ -3174,7 +3179,8 @@ repeat fixed;
 	width: auto;
 }
 
-
+h1.site-title {margin-left:30px;font-weight:400;font-size:14px; word-spacing:6px; margin-top:3px;}
+#site-header img {max-width:40px;position:absolute;top:0;left:-20px;z-index:999; margin-top:6px}
 /**
  * 11.0 Media Queries
  * 
@@ -3206,6 +3212,13 @@ http://core.trac.wordpress.org/ticket/25888.
 }
 
 @media screen and (max-width: 400px) {
+	.primary-navigation.toggled-on {padding:10px 0px 0px;text-align:center;display:block; width:100%; float:left;  }
+	.header-main {max-height:48px; padding:0px;}
+	h1.site-title {font-size:0px;max-width:55px;overflow:hidden;float:none;margin:0 auto;}
+	#site-header img {left:50%;margin-left:-25px; margin-top:-40px;}
+	.search-toggle {right:-40px; position:absolute; top: 0px;}
+	.menu-toggle {left:0px;}
+	
 	.list-view .site-content .post-thumbnail {
 		background: none;
 		width: auto;
@@ -3662,7 +3675,7 @@ thumbnail {
 
 	.primary-navigation a {
 		display: inline-block;
-		padding: 0 12px;
+		padding: 0 10px;
 		white-space: nowrap;
 	}
 
@@ -4578,3 +4591,4 @@ thumbnail {
 		line-height: 36px;
 	}
 }
+
