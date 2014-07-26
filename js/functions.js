@@ -79,7 +79,7 @@
 			var mastheadHeight = $( '#masthead' ).height(),
 				toolbarOffset, mastheadOffset;
 
-			if ( mastheadHeight > 48 ) {
+			if ( mastheadHeight > 55 ) {
 				body.removeClass( 'masthead-fixed' );
 			}
 
@@ -88,7 +88,7 @@
 				mastheadOffset = $( '#masthead' ).offset().top - toolbarOffset;
 
 				_window.on( 'scroll.twentyfourteen', function() {
-					if ( ( window.scrollY > mastheadOffset ) && ( mastheadHeight < 49 ) ) {
+					if ( ( window.scrollY > mastheadOffset ) && ( mastheadHeight < 56 ) ) {
 						body.addClass( 'masthead-fixed' );
 					} else {
 						body.removeClass( 'masthead-fixed' );
