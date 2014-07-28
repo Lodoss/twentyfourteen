@@ -1112,7 +1112,7 @@ the site has a long menu */
  */
 
 .content-area {
-	padding-top: 48px;
+	padding-top: 103px;
 }
 
 .hentry {
@@ -3221,6 +3221,10 @@ http://core.trac.wordpress.org/ticket/25888.
 	.search-toggle {right:-40px; position:absolute; top: 0px;}
 	.menu-toggle {left:0px;}
 	#main-content.main-content{padding-top:55px;}
+	.masthead-fixed .site-header {
+		position: fixed;
+		top: 0;
+	}
 	
 	.list-view .site-content .post-thumbnail {
 		background: none;
@@ -3308,6 +3312,10 @@ title {
 		opacity: 0.85;
 	}
 #main-content.main-content{padding-top:55px;}
+.masthead-fixed .site-header {
+		position: fixed;
+		top: 0;
+	}
 	.full-size-link:before,
 	.parent-post-link:before,
 	.site-content span + .byline:before,
@@ -3457,6 +3465,10 @@ thumbnail {
 		padding-left: 30px;
 	}
 #main-content.main-content{padding-top:55px;}
+.masthead-fixed .site-header {
+		position: fixed;
+		top: 0;
+	}
 	.site-content .has-post-thumbnail .entry-header 
 
 {
