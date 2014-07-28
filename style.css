@@ -1125,7 +1125,7 @@ the site has a long menu */
 .site-content .entry-summary,
 .site-content .entry-meta,
 .page-content {
-	margin: 0 auto;
+	margin: 35px auto;
 	max-width: 474px;
 }
 
@@ -3429,7 +3429,7 @@ date:before {
 		border-top: 1px solid rgba(0, 0, 0, 
 
 0.1);
-		padding-top: 48px;
+		
 	}
 
 	.list-view .site-content .hentry:first-of-type,
@@ -3918,7 +3918,7 @@ caption.alignright {
 	}
 
 	.site-content .entry-header {
-		margin-top: 0;
+		margin-top: 55px;
 	}
 
 	.site-content .has-post-thumbnail .entry-header 
