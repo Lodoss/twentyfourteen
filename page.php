@@ -40,7 +40,7 @@ get_header(); ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
-	<?php get_sidebar( 'content' ); ?>
+	<?php get_sidebar( 'page' ); ?>
 </div><!-- #main-content -->
 
 <?php
