@@ -4609,4 +4609,23 @@ thumbnail {
 		line-height: 36px;
 	}
 }
+/*CSS Styles added by Nabeel Ahmed for Friday Sermon Archive style*/
+#friday-sermon{
+	margin: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+#friday-sermon td{
+	padding: 0px;
+	border:hidden;
+	vertical-align:middle;
+}
+#friday-sermon h1 {
+	font-size: 120%;
+}
+article.type-friday-sermon{
+	margin:0 auto 0px;
+	padding:0px;
+}
+
 

@@ -23,7 +23,7 @@
 			        <param name=\"allowscriptaccess\" value=\"always\" />
         			</object>");
 	}else{
-	echo('<table>');
+	echo('<table id="friday-sermon">');
 	echo('<tr>');
 	echo('<td style="width:40%;">');
 		twentyfourteen_post_thumbnail();
