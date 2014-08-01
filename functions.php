@@ -75,10 +75,11 @@ function twentyfourteen_setup() {
 
 	// Enable support for Post Thumbnails, and declare two sizes.
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 672, 372, true );
+	set_post_thumbnail_size( 1038, 576, true );
 	add_image_size( 'twentyfourteen-full-width', 1038, 576, true );
 	add_image_size( 'twentyfourteen-related-sidebar-width', 306, 169, true );
 	add_image_size( 'twentyfourteen-author-box', 100, 140, true );
+	add_image_size( 'twentyfourteen-medium-width', 672, 372, true );
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
