@@ -4628,4 +4628,21 @@ article.type-friday-sermon{
 	padding:0px;
 }
 
+#event-location {
+  margin-bottom: 60px;
+}
 
+.event-location-container {
+	border: 1px solid grey;
+	display: inline-block;
+	background: #f5f5f5;
+}
+
+.event-location-container-contact,
+.event-location-container-map {
+	float: left;
+}
+
+.event-location-container-contact {
+  padding: 10px;
+}

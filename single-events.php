@@ -38,7 +38,55 @@ get_header(); ?>
 						comments_template();
 					}
 				endwhile;
-			?>
+				
+				$date 	= '10 September 2014, 10:00 AM';
+				
+				$street = types_render_field("address-street", array("raw"=>"true"));
+				$zip 		= types_render_field("zip-code", array("raw"=>"true"));
+				$city 	= types_render_field("city", array("raw"=>"true"));
+				
+				$poc 		= types_render_field("poc", array("raw"=>"true"));
+				$tel 		= types_render_field("telephone-number", array("raw"=>"true"));
+				$fax 		= types_render_field("fax-number", array("raw"=>"true"));
+				$mail 	= types_render_field("poc-mail", array("raw"=>"true"));
+				?>
+				<div id="event-location" class="hentry entry-content">
+					<div class="event-location-container">
+						<div class="event-location-container-contact">
+							<b>Date:</b><br />
+							<?php echo $date; ?><br /><br />
+							
+							<b>Address:</b><br />
+							<?php echo $street; ?> <br /> <?php echo $zip; ?>, <?php echo $city; ?><br /><br />
+							
+							<b>Contact:</b><br />
+							<?php echo $poc; ?><br />
+							Telephone: <?php echo $tel; ?><br />
+							Fax: <?php echo $fax; ?><br />
+							Email: <?php echo $mail; ?><br />
+						</div>
+						
+						<div class="event-location-container-map">
+						<?php
+							// use this link for param http://wordpress.org/plugins/wp-flexible-map/installation/
+							if (flexmap_show_map()) {
+								flexmap_show_map(array(
+								  'address' => $street.', '.$zip.', '.$city,
+								  'width' => 350,
+								  'height' => 350,
+								  'zoom' => 14,
+								  //'title' => 'Malik\'s Home',
+								  //'description' => 'bla blaaa blaaaaaaaaa blaaaaaaaaaa.',
+								  //'directions' => 'my-dir-div',
+								  'hidepanning' => 'true',
+								  'hidescale' => 'false',
+								  //'maptype' => 'satellite',
+								));
+							}
+						?>
+					</div>
+				</div>			
+			</div>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 <?php
