@@ -39,6 +39,9 @@ get_header(); ?>
 					}
 				endwhile;
 				
+				/**
+				 * TODO: event date, translation for following and 2014 responsive shit
+				 */
 				$date 	= '10 September 2014, 10:00 AM';
 				
 				$street = types_render_field("address-street", array("raw"=>"true"));
@@ -69,7 +72,6 @@ get_header(); ?>
 						<div class="event-location-container-map">
 						<?php
 							// use this link for param http://wordpress.org/plugins/wp-flexible-map/installation/
-							if (flexmap_show_map()) {
 								flexmap_show_map(array(
 								  'address' => $street.', '.$zip.', '.$city,
 								  'width' => 350,
@@ -82,7 +84,6 @@ get_header(); ?>
 								  'hidescale' => 'false',
 								  //'maptype' => 'satellite',
 								));
-							}
 						?>
 					</div>
 				</div>			
