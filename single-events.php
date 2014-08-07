@@ -60,8 +60,8 @@ get_header(); ?>
 					<div class="event-location-container">
 						<div class="event-location-container-contact">
 							<div class="event-location-content">
-								<b>Start Date:</b><br /><?php echo $start; ?>
-								<b>End Date:</b><br /><?php echo $end; ?><br /><br />
+								<b>Start Date: </b><?php echo date_i18n('Y-m-d g:i:s A', $start) ?><br />
+								<b>End Date: </b><?php echo date_i18n('Y-m-d g:i:s A', $end) ?><br /><br />
 								
 								<b>Address:</b><br />
 								<?php echo $street; ?> <br /> <?php echo $zip; ?>, <?php echo $city; ?><br /><br />
