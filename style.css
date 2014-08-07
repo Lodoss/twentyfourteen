@@ -4653,7 +4653,9 @@ thumbnail {
 	}
 	#thumbnailcolumn{
 		width:35%;
+  }
 }
+
 #event-location {
   margin-bottom: 60px;
 }
