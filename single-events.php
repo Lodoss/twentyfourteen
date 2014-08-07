@@ -42,7 +42,10 @@ get_header(); ?>
 				/**
 				 * TODO: event date, translation for following and 2014 responsive shit
 				 */
-				$date 	= '10 September 2014, 10:00 AM';
+				
+				$start = types_render_field("event-start-date", array("raw"=>"true"));
+				$end 	 = types_render_field("event-end-date", array("raw"=>"true"));
+				//$date 	= '10 September 2014, 10:00 AM';
 				
 				$street = types_render_field("address-street", array("raw"=>"true"));
 				$zip 		= types_render_field("zip-code", array("raw"=>"true"));
@@ -57,8 +60,8 @@ get_header(); ?>
 					<div class="event-location-container">
 						<div class="event-location-container-contact">
 							<div class="event-location-content">
-								<b>Date:</b><br />
-								<?php echo $date; ?><br /><br />
+								<b>Start Date:</b><br /><?php echo $start; ?>
+								<b>End Date:</b><br /><?php echo $end; ?><br /><br />
 								
 								<b>Address:</b><br />
 								<?php echo $street; ?> <br /> <?php echo $zip; ?>, <?php echo $city; ?><br /><br />
@@ -81,13 +84,14 @@ get_header(); ?>
 								  'zoom' => 14,
 								  //'title' => 'Malik\'s Home',
 								  //'description' => 'bla blaaa blaaaaaaaaa blaaaaaaaaaa.',
-								  //'directions' => 'my-dir-div',
+								  'directions' => 'event-directions',
 								  'hidepanning' => 'true',
 								  'hidescale' => 'false',
 								  //'maptype' => 'satellite',
 								));
 						?>
 					</div>
+					<div id="event-directions"></div>
 				</div>			
 			</div>
 		</div><!-- #content -->
