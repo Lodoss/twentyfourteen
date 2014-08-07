@@ -56,17 +56,19 @@ get_header(); ?>
 				<div id="event-location" class="hentry entry-content">
 					<div class="event-location-container">
 						<div class="event-location-container-contact">
-							<b>Date:</b><br />
-							<?php echo $date; ?><br /><br />
-							
-							<b>Address:</b><br />
-							<?php echo $street; ?> <br /> <?php echo $zip; ?>, <?php echo $city; ?><br /><br />
-							
-							<b>Contact:</b><br />
-							<?php echo $poc; ?><br />
-							Telephone: <?php echo $tel; ?><br />
-							Fax: <?php echo $fax; ?><br />
-							Email: <?php echo $mail; ?><br />
+							<div class="event-location-content">
+								<b>Date:</b><br />
+								<?php echo $date; ?><br /><br />
+								
+								<b>Address:</b><br />
+								<?php echo $street; ?> <br /> <?php echo $zip; ?>, <?php echo $city; ?><br /><br />
+								
+								<b>Contact:</b><br />
+								<?php echo $poc; ?><br />
+								Telephone: <?php echo $tel; ?><br />
+								Fax: <?php echo $fax; ?><br />
+								Email: <?php echo $mail; ?><br />
+							</div>
 						</div>
 						
 						<div class="event-location-container-map">
@@ -74,7 +76,7 @@ get_header(); ?>
 							// use this link for param http://wordpress.org/plugins/wp-flexible-map/installation/
 								flexmap_show_map(array(
 								  'address' => $street.', '.$zip.', '.$city,
-								  'width' => 350,
+								  'width' => '100%',
 								  'height' => 350,
 								  'zoom' => 14,
 								  //'title' => 'Malik\'s Home',
