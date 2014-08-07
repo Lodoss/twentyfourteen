@@ -4610,24 +4610,50 @@ thumbnail {
 	}
 }
 /*CSS Styles added by Nabeel Ahmed for Friday Sermon Archive style*/
-#friday-sermon{
-	margin: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;
+@media only screen and (min-device-width: 700px){
+	#friday-sermon{
+		margin-left: auto;
+		margin-right: auto;
+		width: 90%;
+		text-align: center;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		border:hidden;
+	}
+	#friday-sermon td{
+		padding: 0px;
+		border:hidden;
+		vertical-align:middle;
+	}
+	#thumbnailcolumn{
+		width:40%;
+	}
+	#friday-sermon h1 {
+		font-size: 120%;
+	}
+	article.type-friday-sermon{
+		margin:0 auto 0px;
+		padding-top:0px !important; 
+		border-top: hidden !important;
+	}
 }
-#friday-sermon td{
-	padding: 0px;
-	border:hidden;
-	vertical-align:middle;
+@media only screen and (max-device-width: 480px){
+	#friday-sermon{
+		border: hidden !important;
+	}
+	#friday-sermon td{
+		padding: 0px;
+		vertical-align:middle;
+		border: hidden;
+		
+	}
+	#friday-sermon h1 {
+		font-size: 24px;
+		line-height: 1.3846153846;
+	}
+	#thumbnailcolumn{
+		width:35%;
 }
-#friday-sermon h1 {
-	font-size: 120%;
-}
-article.type-friday-sermon{
-	margin:0 auto 0px;
-	padding:0px;
-}
-
 #event-location {
   margin-bottom: 60px;
 }

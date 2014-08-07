@@ -25,7 +25,7 @@
 	}else{
 	echo('<table id="friday-sermon">');
 	echo('<tr>');
-	echo('<td style="width:40%;">');
+	echo('<td id="thumbnailcolumn">');
 		twentyfourteen_post_thumbnail();
 	echo('</td>');
 	} ?>
@@ -73,7 +73,7 @@
 
 	<?php if ( is_search() || is_archive() ) : ?>
 	<div class="entry-summary">
-		<?php the_excerpt(); ?>
+		<?php //the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 	</td>
 	</tr>
@@ -98,7 +98,7 @@
 				echo "<strong>Summary:</strong> ".$summary."<br>";
 				echo "<strong>Date of the Friday Sermon:</strong> ".$sermondate."<br>";
 			}else{
-			the_excerpt();
+			//the_excerpt();
 			}
 			the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyfourteen' ) );
 			wp_link_pages( array(
